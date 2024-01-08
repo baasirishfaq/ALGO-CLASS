@@ -6,21 +6,37 @@ using namespace std;
 int main()
 {
 
-    int n;
+    int n, flag = 1;
     cin >> n;
 
-    while (n != 0)
+    while (n >= 0)
     {
-        if (n % 2 == 0)
+
+        if (n == 1)
         {
-            cout << "it is power of 2";
+            flag = 0;
             break;
         }
-        else
+        else if (n == 0)
         {
-            cout << "not power of 2";
+            flag = 1;
             break;
         }
+        else if (n % 2 == 1)
+        {
+            flag = 1;
+            break;
+        }
+
+        n = n / 2;
+        flag = 0;
     }
-    // l
+    if (flag == 0)
+    {
+        cout << "true";
+    }
+    else
+    {
+        cout << "false";
+    }
 };
