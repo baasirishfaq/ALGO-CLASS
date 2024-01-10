@@ -5,38 +5,22 @@ using namespace std;
 
 int main()
 {
-
-    int n, flag = 1;
+    int n, sum = 0, m;
+    cout << "Enter a number: ";
     cin >> n;
-
-    while (n >= 0)
+    while (n > 0)
     {
+        m = n % 10;
+        sum = sum + m;
+        n = n / 10;
+    }
+    cout << "Sum is= " << sum << endl;
 
-        if (n == 1)
-        {
-            flag = 0;
-            break;
-        }
-        else if (n == 0)
-        {
-            flag = 1;
-            break;
-        }
-        else if (n % 2 == 1)
-        {
-            flag = 1;
-            break;
-        }
-
-        n = n / 2;
-        flag = 0;
-    }
-    if (flag == 0)
+    for (int i = 0; i < n; i++)
     {
-        cout << "true";
+        for (int j = i + 1; j < n; j++)
+        {
+            //
+        }
     }
-    else
-    {
-        cout << "false";
-    }
-};
+}
