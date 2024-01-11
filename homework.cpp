@@ -1,22 +1,14 @@
 #include <iostream>
-#include <stdio.h>
-
 using namespace std;
-
 int main()
 {
-    int tc;
-    cin >> tc;
-    int usernumber[tc];
+    int n, r, temp, sum = 0;
+    cout << "enter number for check";
+    cin >> n;
 
-    for (int i = 0; i < tc; i++)
-    {
-        cin >> usernumber[i];
-    }
+    temp = n;
 
-    for (int i = 0; i < tc; i++)
+    while (n > 0)
     {
-        cout << "1 " << usernumber[i] - 3 << " 1"
-             << " 1" << endl;
     }
 }
