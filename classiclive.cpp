@@ -7,5 +7,5 @@ int main()
 {
     for (int rem = number; rem > 0; rem = / 10)
     {
-    }
+        }
 }
