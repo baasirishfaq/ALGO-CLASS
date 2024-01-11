@@ -1,26 +1,25 @@
-#include <iostream>
-#include <stdio.h>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    int n, sum = 0, m;
-    cout << "Enter a number: ";
-    cin >> n;
-    while (n > 0)
-    {
-        m = n % 10;
-        sum = sum + m;
-        n = n / 10;
-    }
-    cout << "Sum is= " << sum << endl;
+    int tc;
+    cin >> tc;
+    int water[tc];
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < tc; i++)
     {
-        for (int j = i + 1; j < n; j++)
+        cin >> water[i];
+    }
+    for (int j = 0; j < tc; j++)
+    {
+        if (water[j] >= 2000)
         {
-            //
+            cout << "YES";
+        }
+        else
+        {
+            cout << "NO";
         }
     }
-}
+};
