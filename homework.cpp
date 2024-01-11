@@ -1,31 +1,22 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <stdio.h>
+
 using namespace std;
 
 int main()
-
 {
     int tc;
     cin >> tc;
-    int numbers[tc];
+    int usernumber[tc];
 
     for (int i = 0; i < tc; i++)
     {
-        cin >> numbers[i];
+        cin >> usernumber[i];
     }
 
-    for (int j = 0; j < tc; j++)
+    for (int i = 0; i < tc; i++)
     {
-        if ((numbers[j] % 2 == 0) && (numbers[j] % 7 == 0))
-        {
-            cout << "Alice" << endl;
-        }
-        else if ((numbers[j] % 2 != 0) && (numbers[j] % 9 == 0))
-        {
-            cout << "Bob" << endl;
-        }
-        else
-        {
-            cout << "Charlie" << endl;
-        }
+        cout << "1 " << usernumber[i] - 3 << " 1"
+             << " 1" << endl;
     }
 }
