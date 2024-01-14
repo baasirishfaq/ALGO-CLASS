@@ -3,13 +3,35 @@
 
 using namespace std;
 
+bool isSorted(int arr[], int size)
+{
+    if (size == 1)
+    {
+        return true;
+    }
+    if (arr[0] > arr[1])
+    {
+        return false;
+    }
+    int smallerArray[size - 1];
+    for (int i = 1; i < size; i++)
+    {
+        smallerArray[i - 1] = arr[i];
+    }
+    bool isSmallerSorted = isSorted(smallerArray, size - 1);
+    if (isSmallerSorted)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 int main()
 {
-    int sum = 0;
-    int arr[4] = {1, 2, 3, 4};
-    for (int i = 0; i < 4; i++)
-    {
-        sum = sum + arr[i] % 10;
-    }
-    cout << "sum is " << sum;
+
+    int arr[] = {1, 6, 3, 4};
+    cout << isSorted(arr, 4) << endl;
 }
