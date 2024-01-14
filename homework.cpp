@@ -1,26 +1,20 @@
-#include <iostream>
-using namespace std;
-int main()
+class Solution
 {
-    int n, r, temp, sum = 0;
-    cout << "enter number for check";
-    cin >> n;
-
-    temp = n;
-
-    while (n > 0)
+public:
+    int numIdenticalPairs(vector<int> &nums)
     {
-        r = n % 10;
-        sum = sum + (r * r * r);
-        n = n / 10;
+        int n = nums.size();
+        int count = 0;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = i + 1; j < n; j++)
+            {
+                if (nums[i] == nums[j])
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
     }
-    if (temp == sum)
-    {
-        cout << "armstrong";
-    }
-    else
-    {
-        cout << "no";
-    }
-    //
-}
+};
