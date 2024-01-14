@@ -1,17 +1,15 @@
-class Solution
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+
+int main()
 {
-public:
-    int numberOfEmployeesWhoMetTarget(vector<int> &hours, int target)
+    int sum = 0;
+    int arr[4] = {1, 2, 3, 4};
+    for (int i = 0; i < 4; i++)
     {
-        int n = hours.size();
-        int count = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (hours[i] >= target)
-            {
-                count++;
-            }
-        }
-        return count;
+        sum = sum + arr[i] % 10;
     }
-};
+    cout << "sum is " << sum;
+}
