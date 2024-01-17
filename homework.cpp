@@ -1,13 +1,21 @@
-class Solution
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+
+int main()
 {
-public:
-    vector<int> numberGame(vector<int> &nums)
+    int size;
+    cin >> size;
+    int *const arr = new int[size];
+    for (int i = 0; i < size; i++)
     {
-        sort(nums.begin(), nums.end());
-        for (int i = 0; i < nums.size(); i += 2)
-        {
-            swap(nums[i], nums[i + 1]);
-        }
-        return nums;
+        cin >> arr[i];
     }
-};
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i];
+    }
+
+    delete[] arr;
+}
