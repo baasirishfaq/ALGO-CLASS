@@ -1,21 +1,33 @@
-#include <iostream>
-#include <stdio.h>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    int size;
-    cin >> size;
-    int *const arr = new int[size];
-    for (int i = 0; i < size; i++)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        cin >> arr[i];
-    }
-    for (int i = 0; i < size; i++)
-    {
-        cout << arr[i];
-    }
+        int n, valuestore, count = 1;
+        cout << "enter array length:";
+        cin >> n;
+        int arr[n];
+        for (int i = 0; i < n; i++)
+        {
+            cin >> arr[i];
+        }
 
-    delete[] arr;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = i + 1; j < n; j++)
+            {
+                if (arr[i] == arr[j])
+                {
+                    valuestore = arr[i];
+                    count++;
+                }
+            }
+        }
+        cout << valuestore << " " << count;
+    }
+    return 0;
 }
