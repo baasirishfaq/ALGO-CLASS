@@ -7,8 +7,8 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n, valuestore, count = 1;
-        cout << "enter array length:";
+        int n, valuestore = 0, count = 0;
+
         cin >> n;
         int arr[n];
         for (int i = 0; i < n; i++)
@@ -18,16 +18,27 @@ int main()
 
         for (int i = 0; i < n; i++)
         {
-            for (int j = i + 1; j < n; j++)
+            int ct = 0;
+            for (int j = i; j < n; j++)
             {
                 if (arr[i] == arr[j])
                 {
-                    valuestore = arr[i];
-                    count++;
+
+                    ct++;
                 }
             }
+            if (ct > count)
+            {
+                valuestore = arr[i];
+                count = ct;
+            }
+            else if (ct == count && arr[i] < valuestore)
+            {
+                valuestore = arr[i];
+            }
         }
-        cout << valuestore << " " << count;
+
+        cout << valuestore << " " << count << endl;
     }
     return 0;
 }
