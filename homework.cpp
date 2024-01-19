@@ -7,38 +7,13 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n, valuestore = 0, count = 0;
-
+        int n;
         cin >> n;
-        int arr[n];
-        for (int i = 0; i < n; i++)
+        int count = 0;
+        while (n != 0)
         {
-            cin >> arr[i];
+            cout << " " << n--;
         }
-
-        for (int i = 0; i < n; i++)
-        {
-            int ct = 0;
-            for (int j = i; j < n; j++)
-            {
-                if (arr[i] == arr[j])
-                {
-
-                    ct++;
-                }
-            }
-            if (ct > count)
-            {
-                valuestore = arr[i];
-                count = ct;
-            }
-            else if (ct == count && arr[i] < valuestore)
-            {
-                valuestore = arr[i];
-            }
-        }
-
-        cout << valuestore << " " << count << endl;
     }
     return 0;
 }
