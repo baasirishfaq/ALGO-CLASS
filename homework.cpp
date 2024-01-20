@@ -1,19 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int arr[10];
+int i = 0;
+int siz = 0;
+
+void insertatend(int a)
+{
+    arr[i] = a;
+    i++;
+    siz++;
+}
+
+void printarray()
+{
+    for (int j = 0; j < siz; j++)
+    {
+        cout << arr[j] << " ";
+    }
+}
+
 int main()
 {
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        int n;
-        cin >> n;
-        int count = 0;
-        while (n != 0)
-        {
-            cout << " " << n--;
-        }
-    }
+    insertatend(10);
+    insertatend(20);
+    insertatend(30);
+    insertatend(40);
+    printarray();
+
     return 0;
 }
