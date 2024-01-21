@@ -1,12 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int arr[10];
+int arr[5];
 int i = 0;
 int siz = 0;
 
 void insertatend(int a)
 {
+    if (siz == 5)
+    {
+        cout << "array is at full capacity " << endl;
+        return;
+    }
     arr[i] = a;
     i++;
     siz++;
@@ -19,6 +24,13 @@ void printarray()
         cout << arr[j] << " ";
     }
 }
+void insertatloc(int ele, int loc)
+{
+    for (int i = 0; i < siz; i++)
+    {
+        if ()
+    }
+}
 
 int main()
 {
@@ -26,6 +38,7 @@ int main()
     insertatend(20);
     insertatend(30);
     insertatend(40);
+
     printarray();
 
     return 0;
