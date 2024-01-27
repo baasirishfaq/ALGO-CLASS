@@ -22,8 +22,8 @@ int main()
     cin >> john.mobile;
     cin >> john.standard;
 
-    cout << john.roll_no;
-    cout << john.gender;
-    cout << john.mobile;
-    cout << john.standard;
+    cout << john.roll_no << endl;
+    cout << john.gender << endl;
+    cout << john.mobile << endl;
+    cout << john.standard << endl;
 }
