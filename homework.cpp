@@ -1,29 +1,25 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-// classes...
-
-class Student
+class Solution
 {
 public:
-    int roll_no;
-    char gender;
-    int mobile;
-    int standard;
+    string makeGood(string s)
+    {
+        vector<char> st;
+        st.push_back(s[0]);
+
+        for (int i = 1; i < s.size(); i++)
+        {
+            char topval = st.back();
+
+            if (!st.empty() && abs(topval - s[i]) == 32)
+            {
+                st.pop_back();
+            }
+            else
+            {
+                st.push_back(s[i]);
+            }
+        }
+        string ans(st.begin(), st.end());
+        return ans;
+    }
 };
-
-int main()
-{
-
-    Student john;
-    cin >> john.roll_no;
-    cin >> john.gender;
-    cin >> john.mobile;
-    cin >> john.standard;
-
-    cout << john.roll_no << endl;
-    cout << john.gender << endl;
-    cout << john.mobile << endl;
-    cout << john.standard << endl;
-}
