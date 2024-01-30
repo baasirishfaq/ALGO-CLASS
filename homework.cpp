@@ -1,25 +1,16 @@
 class Solution
 {
 public:
-    string makeGood(string s)
+    int bar = 0, count = 0;
+    int countAsterisks(string s)
     {
-        vector<char> st;
-        st.push_back(s[0]);
-
-        for (int i = 1; i < s.size(); i++)
+        for (int i = 0; i < s.length(); i++)
         {
-            char topval = st.back();
-
-            if (!st.empty() && abs(topval - s[i]) == 32)
-            {
-                st.pop_back();
-            }
-            else
-            {
-                st.push_back(s[i]);
-            }
+            if (s[i] == '|')
+                bar++;
+            if (bar % 2 == 0 && s[i] == '*')
+                count++;
         }
-        string ans(st.begin(), st.end());
-        return ans;
+        return count;
     }
 };
