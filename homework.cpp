@@ -1,16 +1,29 @@
 class Solution
 {
 public:
-    int bar = 0, count = 0;
-    int countAsterisks(string s)
+    string reverseOnlyLetters(string s)
     {
-        for (int i = 0; i < s.length(); i++)
+        int start = 0;
+        int end = s.length() - 1;
+
+        while (start <= end)
         {
-            if (s[i] == '|')
-                bar++;
-            if (bar % 2 == 0 && s[i] == '*')
-                count++;
+            if (isalpha(s[start]) && isalpha(s[end]))
+            {
+                swap(s[start], s[end]);
+                start++;
+                end--;
+            }
+            else if (!isalpha(s[start]) && !isalpha(s[end]))
+            {
+                start++;
+                end--;
+            }
+            else if (!isalpha(s[start]))
+                start++;
+            else
+                end--;
         }
-        return count;
+        return s;
     }
-}; //
+};
