@@ -1,30 +1,33 @@
-class Solution
-{
-public:
-    string reverseOnlyLetters(string s)
-    {
-        int start = 0;
-        int end = s.length() - 1;
+#include <bits/stdc++.h>
 
-        while (start <= end)
+using namespace std;
+
+int main()
+{
+    {
+        string s = "A man, a plan, a canal: Panama";
+        cout << "this is the given string: " << s << endl;
+        vector<char> st;
+        for (int i = 0; i < s.length(); i++)
         {
-            if (isalpha(s[start]) && isalpha(s[end]))
+            if (isalpha(s[i]))
             {
-                swap(s[start], s[end]);
-                start++;
-                end--;
+                st.push_back(s[i]);
             }
-            else if (!isalpha(s[start]) && !isalpha(s[end]))
-            {
-                start++;
-                end--;
-            }
-            else if (!isalpha(s[start]))
-                start++;
-            else
-                end--;
         }
-        return s;
+        string ans(st.begin(), st.end());
+        transform(ans.begin(), ans.end(), ans.begin(), ::tolower);
+        string chk(ans);
+        reverse(chk.begin(), chk.end());
+        // cout << "this is ans stack string :" << ans << endl;
+        // cout << "this is reverse : " << chk << endl;
+        if (ans == chk)
+        {
+            cout << "true";
+        }
+        else
+        {
+            cout << "false";
+        }
     }
-};
-//
+}
