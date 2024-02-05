@@ -1,33 +1,29 @@
 #include <bits/stdc++.h>
-
 using namespace std;
+
+vector<int> parseInts(string str)
+{
+    int n = str.length(), numstore[n];
+    for (int i; i < str.length(); i++)
+    {
+        if (!isdigit(str[i]))
+        {
+            str.erase(i, 1);
+        }
+    }
+    cout << str << endl;
+}
 
 int main()
 {
+    string str("23,33,22");
+    // cin >> str;
+
+    vector<int> integers = parseInts(str);
+    for (int i = 0; i < integers.size(); i++)
     {
-        string s = "0P";
-        vector<string> mystr;
-        cout << "this is the given string: " << s << endl;
-        for (int i = 0; i < s.size(); i++)
-        {
-            if (!isdigit(s[i]) && s[i] < 'A' || s[i] > 'Z' && s[i] < 'a' || s[i] > 'z')
-            {
-                s.erase(i, 1);
-                i--;
-            }
-        }
-        transform(s.begin(), s.end(), s.begin(), ::tolower);
-        string chk(s);
-        reverse(chk.begin(), chk.end());
-        cout << "this is ans stack string :" << s << endl;
-        cout << "this is reverse : " << chk << endl;
-        if (s == chk)
-        {
-            cout << "true";
-        }
-        else
-        {
-            cout << "false";
-        }
+        cout << integers[i] << "\n";
     }
+
+    return 0;
 }

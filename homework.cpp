@@ -1,7 +1,7 @@
 // #include <bits/stdc++.h>
 
 // using namespace std;
-
+//
 // int main()
 // {
 //     {
@@ -49,29 +49,36 @@ using namespace std;
 int main()
 {
     {
-        string s = "0P";
-        vector<string> mystr;
-        cout << "this is the given string: " << s << endl;
+        string s = "P";
+        int n = s.length();
+        int askilist[n];
+        // cout << "this is the given string: " << s << endl;
         for (int i = 0; i < s.size(); i++)
         {
             if (!isdigit(s[i]) && s[i] < 'A' || s[i] > 'Z' && s[i] < 'a' || s[i] > 'z')
             {
-                s.erase(i, 1);
-                i--;
+                for (int j = 0; j <= n; j++)
+                {
+                    cin >> (askilist[j]);
+                }
             }
         }
-        transform(s.begin(), s.end(), s.begin(), ::tolower);
-        string chk(s);
-        reverse(chk.begin(), chk.end());
-        cout << "this is ans stack string :" << s << endl;
-        cout << "this is reverse : " << chk << endl;
-        if (s == chk)
+        for (int j = 0; j <= n; j++)
         {
-            cout << "true";
+            cout << "ascii list :" << (askilist[j]) << endl;
         }
-        else
-        {
-            cout << "false";
-        }
+        // transform(s.begin(), s.end(), s.begin(), ::tolower);
+        // string chk(s);
+        // reverse(chk.begin(), chk.end());
+        // cout << "this is ans stack string :" << s << endl;
+        // cout << "this is reverse : " << chk << endl;
+        // if (s == chk)
+        // {
+        //     cout << "true";
+        // }
+        // else
+        // {
+        //     cout << "false";
+        // }
     }
 }
