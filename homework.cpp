@@ -1,19 +1,26 @@
-class Solution
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
 {
-public:
-    int missingNumber(vector<int> &nums)
+    cout << "enter array size: ";
+    int n;
+    cin >> n;
+    int arr[n];
+    int currnum = 0;
+    for (int i = 0; i < n; i++)
     {
-        int sa = 0;
-        int n = nums.size();
-
-        for (int i = 0; i < nums.size(); i++)
-        {
-            sa = sa + nums[i];
-        }
-
-        int sn = n * (n + 1) / 2;
-
-        int missingnum = sn - sa;
-        return missingnum;
+        cin >> arr[i];
     }
-};
+    sort(n, n + 1);
+
+    for (int i = 0; i < n; i++, currnum++)
+    {
+        if (currnum != arr[i])
+        {
+            currnum = arr[i];
+        }
+    }
+    cout << "missing num is " << currnum;
+}
