@@ -1,19 +1,36 @@
-class Solution
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
 {
-public:
-    int missingNumber(vector<int> &nums)
+
+    vector<string> nums;
+    string uinput;
+    cin >> uinput;
+
+    while (uinput != "0")
     {
-        int n = nums.size();
-        sort(nums.begin(), nums.end());
-        int currnum = 0;
-        for (int j = 0; j < n; j++)
+        nums.push_back(uinput);
+        cin >> uinput;
+    }
+    int n = nums.size();
+    sort(nums.begin(), nums.end());
+    int counter = 1;
+    vector<string> st;
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] == counter)
         {
-            if (nums[j] != currnum)
-            {
-                return currnum;
-            }
-            currnum++;
+            counter++;
         }
-        return currnum;
-    } //
-};
+        else
+        {
+            st.push_back(counter);
+            counter++;
+        }
+    }
+    string ans(st.begin(), st.end());
+    int m = stoi(ans);
+    return m;
+}
