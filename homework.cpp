@@ -1,36 +1,22 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-int main()
+class Solution
 {
-
-    vector<string> nums;
-    string uinput;
-    cin >> uinput;
-
-    while (uinput != "0")
+public:
+    vector<int> findDisappearedNumbers(vector<int> &nums)
     {
-        nums.push_back(uinput);
-        cin >> uinput;
-    }
-    int n = nums.size();
-    sort(nums.begin(), nums.end());
-    int counter = 1;
-    vector<string> st;
-    for (int i = 0; i < n; i++)
-    {
-        if (nums[i] == counter)
+        int n = nums.size();
+        vector<int> v;
+
+        for (int i = 0; i < n; i++)
         {
-            counter++;
+            int index = abs(nums[i]) - 1;
+            if (nums[index] > 0)
+                nums[index] *= -1;
         }
-        else
+        for (int i = 0; i < n; i++)
         {
-            st.push_back(counter);
-            counter++;
+            if (nums[i] > 0)
+                v.push_back(i + 1);
         }
+        return v;
     }
-    string ans(st.begin(), st.end());
-    int m = stoi(ans);
-    return m;
-}
+};
