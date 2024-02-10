@@ -1,22 +1,13 @@
 class Solution
 {
 public:
-    vector<int> findDisappearedNumbers(vector<int> &nums)
+    void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
     {
-        int n = nums.size();
-        vector<int> v;
-
-        for (int i = 0; i < n; i++)
+        for (int j = 0, i = m; j < n; j++)
         {
-            int index = abs(nums[i]) - 1;
-            if (nums[index] > 0)
-                nums[index] *= -1;
+            nums1[i] = nums2[j];
+            i++;
         }
-        for (int i = 0; i < n; i++)
-        {
-            if (nums[i] > 0)
-                v.push_back(i + 1);
-        }
-        return v; //
+        sort(nums1.begin(), nums1.end());
     }
 };
