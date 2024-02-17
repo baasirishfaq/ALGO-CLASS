@@ -1,13 +1,21 @@
 class Solution
 {
 public:
-    void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
+    int maxSubArray(vector<int> &nums)
     {
-        for (int j = 0, i = m; j < n; j++)
+        int n = nums.size();
+        int curr_sum = 0, final_ans = INT_MIN;
+
+        for (int i = 0; i < n; i++)
         {
-            nums1[i] = nums2[j];
-            i++;
+            curr_sum += nums[i];
+
+            final_ans = max(curr_sum, final_ans);
+            if (curr_sum < 0)
+            {
+                curr_sum = 0;
+            }
         }
-        sort(nums1.begin(), nums1.end());
+        return final_ans;
     }
 };
