@@ -1,21 +1,26 @@
 class Solution
 {
 public:
-    int maxSubArray(vector<int> &nums)
+    int maximumDifference(vector<int> &nums)
     {
-        int n = nums.size();
-        int curr_sum = 0, final_ans = INT_MIN;
+        int ans = 0, currans = 0, n = nums.size();
 
         for (int i = 0; i < n; i++)
         {
-            curr_sum += nums[i];
-
-            final_ans = max(curr_sum, final_ans);
-            if (curr_sum < 0)
+            for (int j = i + 1; j < n; j++)
             {
-                curr_sum = 0;
+                if (nums[j] > nums[i])
+                {
+                    currans = nums[j] - nums[i];
+                    if (currans > ans)
+                    {
+                        ans = currans;
+                    }
+                }
             }
         }
-        return final_ans;
+        if (ans <= 0)
+            return -1;
+        return ans;
     }
-}; //
+};
