@@ -1,28 +1,19 @@
 class Solution
 {
 public:
-    double findMaxAverage(vector<int> &nums, int k)
+    void helper(int start, int end, vector<char> &s)
     {
-        int sum = 0;
-        for (int i = 0; i < k; i++)
-        {
-            sum += nums[i];
-        }
-        int maxsum = sum;
+        if (start > end)
+            return;
 
-        int start_index = 0;
-        int end_index = k;
+        char temp = s[end];
+        s[end] = s[start];
+        s[start] = temp;
+        helper(start + 1, end - 1, s);
+    }
 
-        while (end_index < nums.size())
-        {
-            sum = sum - nums[start_index];
-            start_index++;
-
-            sum = sum + nums[end_index];
-            end_index++;
-
-            maxsum = max(maxsum, sum);
-        }
-        return (double)maxsum / k;
+    void reverseString(vector<char> &s)
+    {
+        helper(0, s.size() - 1, s);
     }
 };
