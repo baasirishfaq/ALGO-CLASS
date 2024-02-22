@@ -1,19 +1,40 @@
-class Solution
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int reverseNum;
+int sumOfDigits(int n)
 {
-public:
-    void helper(int start, int end, vector<char> &s)
-    {
-        if (start > end)
-            return;
+    if (n == 0)
+        return 0;
 
-        char temp = s[end];
-        s[end] = s[start];
-        s[start] = temp;
-        helper(start + 1, end - 1, s);
-    }
+    return (n % 10) + sumOfDigits(n / 10);
+}
 
-    void reverseString(vector<char> &s)
-    {
-        helper(0, s.size() - 1, s);
-    }
-};
+void reverseNumber(int num)
+{
+    if (num == 0)
+        return;
+
+    int lastDigit = num % 10;
+    reverseNum = (reverseNum * 10) + lastDigit;
+    reverseNumber(num / 10);
+}
+
+int isDigitSumPalindrome(int N)
+{
+    reverseNum = 0;
+    int sumdig = sumOfDigits(N);
+    reverseNumber(sumdig);
+    if (sumdig == reverseNum)
+        return 1;
+    return 0;
+}
+
+int main()
+{
+
+    int N;
+    cin >> N;
+    cout << isDigitSumPalindrome(N) << "\n";
+}
