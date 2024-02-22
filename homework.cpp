@@ -11,7 +11,7 @@ int pallindromechk(int ans, int nr)
         return 0;
     }
 }
-int numreverse(int ans)
+int numreverse(int ans) // this function is used to reverse the numeber (answer in this case)...
 {
     int remainder, reversed_number = 0;
     while (ans != 0)
@@ -23,7 +23,7 @@ int numreverse(int ans)
     return reversed_number;
 }
 
-int sumdig(int n)
+int sumdig(int n) // recursion taking place in this function
 {
     if (n == 0)
         return 0;
