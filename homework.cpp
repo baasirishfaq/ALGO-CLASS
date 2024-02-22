@@ -1,40 +1,21 @@
-
 #include <bits/stdc++.h>
+
 using namespace std;
 
-int reverseNum;
-int sumOfDigits(int n)
+int sum(int arr[], int n)
 {
     if (n == 0)
         return 0;
-
-    return (n % 10) + sumOfDigits(n / 10);
-}
-
-void reverseNumber(int num)
-{
-    if (num == 0)
-        return;
-
-    int lastDigit = num % 10;
-    reverseNum = (reverseNum * 10) + lastDigit;
-    reverseNumber(num / 10);
-}
-
-int isDigitSumPalindrome(int N)
-{
-    reverseNum = 0;
-    int sumdig = sumOfDigits(N);
-    reverseNumber(sumdig);
-    if (sumdig == reverseNum)
-        return 1;
-    return 0;
+    return arr[n - 1] + sum(arr, n - 1);
 }
 
 int main()
 {
+    int n;
+    n = 4;
+    int arr[n] = {1, 2, 3, 4};
 
-    int N;
-    cin >> N;
-    cout << isDigitSumPalindrome(N) << "\n";
+    int ans = sum(arr, n);
+    cout << ans << "\n";
+    return 0;
 }
