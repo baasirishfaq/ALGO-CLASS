@@ -1,2 +1,1 @@
-    cout << ans << "\n";
-    cout << nr << "\n";
+// Function to print an array
