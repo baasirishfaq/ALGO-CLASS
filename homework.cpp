@@ -1,8 +1,6 @@
-// Optimized implementation of Bubble sort
 #include <bits/stdc++.h>
 using namespace std;
 
-// An optimized version of Bubble Sort
 void bubbleSort(int arr[], int n)
 {
     int i, j;
@@ -19,14 +17,13 @@ void bubbleSort(int arr[], int n)
             }
         }
 
-        // If no two elements were swapped
-        // by inner loop, then break
         if (swapped == false)
+        {
             break;
+        }
     }
 }
 
-// Function to print an array
 void printArray(int arr[], int size)
 {
     int i;
