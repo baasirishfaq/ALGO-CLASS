@@ -1,42 +1,32 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-void bubbleSort(int arr[], int n)
-{
-    int i, j;
-    bool swapped;
-    for (i = 0; i < n - 1; i++)
+class Solution {
+public:
+    int maxVowels(string s, int k) 
     {
-        swapped = false;
-        for (j = 0; j < n - i - 1; j++)
+        unordered_set <char> vowels = {'a', 'e', 'i', 'o', 'u'};
+
+        int maxvowels = 0, windowvowels = 0;
+
+        for(int i = 0; i<k; i++)
         {
-            if (arr[j] > arr[j + 1])
+            if(vowels.contains(s[i]))
             {
-                swap(arr[j], arr[j + 1]);
-                swapped = true;
+                windowvowels ++;
             }
         }
+        maxvowels = windowvowels;
 
-        if (swapped == false)
+        for(int i = k; i<s.size(); i++)
         {
-            break;
+            if(vowels.contains(s[i-k]))
+            {
+                windowvowels--;
+            }
+            if(vowels.contains(s[i]))
+            {
+                windowvowels++;
+            }
+            maxvowels = max(maxvowels, windowvowels);
         }
+        return maxvowels;
     }
-}
-
-void printArray(int arr[], int size)
-{
-    int i;
-    for (i = 0; i < size; i++)
-        cout << " " << arr[i];
-}
-
-int main()
-{
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int N = sizeof(arr) / sizeof(arr[0]);
-    bubbleSort(arr, N);
-    cout << "Sorted array: \n";
-    printArray(arr, N);
-    return 0;
-}
+};
