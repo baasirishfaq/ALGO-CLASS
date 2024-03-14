@@ -17,6 +17,16 @@ void printlist(node *n)
     }
 }
 
+node *deletehead(node *head)
+{
+    if (head == NULL)
+        return head;
+    node *temp = head;
+    head = head->next;
+    delete temp;
+    return head;
+}
+
 int main()
 {
     node *head = new node;
@@ -28,7 +38,6 @@ int main()
     second->next = third;
     third->data = 3;
     third->next = NULL;
-
+    head = deletehead(head);
     printlist(head);
 }
-//
