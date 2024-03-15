@@ -1,21 +1,48 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-int main()
+class MinStack
 {
+public:
     vector<int> st;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++)
+    vector<int> minst;
+
+    MinStack() {}
+
+    void push(int val)
     {
-        int x;
-        cin >> x;
-        st.push_back(x);
+        st.push_back(val);
+
+        if (minst.empty() || val <= minst.back())
+        {
+            minst.push_back(val);
+        }
     }
-    cout << "following items in stack:";
-    for (int i = 0; i < n; i++)
+
+    void pop()
     {
-        cout << st[i] << " ";
+        if (!minst.empty() && !st.empty() && st.back() == minst.back())
+        {
+            minst.pop_back();
+        }
+        if (!st.empty())
+        {
+            st.pop_back();
+        }
     }
-} //
+
+    int top()
+    {
+        if (!st.empty())
+        {
+            return st.back();
+        }
+        return -1;
+    }
+
+    int getMin()
+    {
+        if (!minst.empty())
+        {
+            return minst.back();
+        }
+        return -1;
+    }
+};
