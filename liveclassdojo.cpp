@@ -1,48 +1,16 @@
-class MinStack
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
 {
-public:
-    vector<int> st;
-    vector<int> minst;
-
-    MinStack() {}
-
-    void push(int val)
+    char arr[3] = {'A', 'B', 'C'};
+    if (arr[0] == 'A' && arr[1] == 'B' && arr[2] == 'C')
     {
-        st.push_back(val);
-
-        if (minst.empty() || val <= minst.back())
-        {
-            minst.push_back(val);
-        }
+        cout << "Yes";
     }
-
-    void pop()
+    else
     {
-        if (!minst.empty() && !st.empty() && st.back() == minst.back())
-        {
-            minst.pop_back();
-        }
-        if (!st.empty())
-        {
-            st.pop_back();
-        }
+        cout << "no";
     }
-
-    int top()
-    {
-        if (!st.empty())
-        {
-            return st.back();
-        }
-        return -1;
-    }
-
-    int getMin()
-    {
-        if (!minst.empty())
-        {
-            return minst.back();
-        }
-        return -1;
-    }
-};
+}
