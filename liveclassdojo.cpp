@@ -4,13 +4,46 @@ using namespace std;
 
 int main()
 {
-    char arr[3] = {'A', 'B', 'C'};
-    if (arr[0] == 'A' && arr[1] == 'B' && arr[2] == 'C')
+    string s("leet**cod*e");
+    vector<char> st;
+
+    st.push_back(s[0]);
+
+    for (int i = 0; i < s.size(); i++)
     {
-        cout << "Yes";
+        if (s[i + 1] == '*')
+        {
+            st.pop_back();
+        }
+        else
+        {
+            st.push_back(s[i + 1]);
+        }
     }
-    else
-    {
-        cout << "no";
-    }
+    string ans(st.begin(), st.end());
+    cout << ans << endl;
 }
+
+//
+
+class Solution
+{
+public:
+    string removeStars(string s)
+    {
+        vector<char> st;
+        for (int i = 0; i < s.size(); i++)
+        {
+            if (s[i] == '*')
+            {
+                st.pop_back();
+            }
+            else
+            {
+                st.push_back(s[i]);
+            }
+        }
+        string stx(st.begin(), st.end());
+        return stx;
+    }
+};
