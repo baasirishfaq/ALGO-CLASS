@@ -18,6 +18,14 @@ void printlist(node *n)
     cout << endl;
 }
 
+void athead(node *&head, int x)
+{
+    node *newnode = new node;
+    newnode->data = x;
+    newnode->next = head;
+    head = newnode;
+}
+
 int main()
 {
     node *head = new node;
@@ -30,6 +38,6 @@ int main()
     second->next = third;
     third->data = 3;
     third->next = NULL;
-
+    athead(head, 10);
     printlist(head);
 }
