@@ -1,37 +1,35 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-//
- //
+
+struct node
+{
+    int data;
+    node *next;
+};
+
+void printlist(node *n)
+{
+    while (n != NULL)
+    {
+        cout << n->data << " ";
+        n = n->next;
+    }
+    cout << endl;
+}
+
 int main()
 {
-    int n;
-    cin >> n;
-    int nums[n];
-    cout << "enter vals in numsay" << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> nums[i];
-    }
-    for (int i = 0; i < n; i++)
-    {
-        if (nums[i] < nums[i + 1])
-        {
-            for (int j = 0; j < n; j++)
-            {
-                if (nums[j] > nums[i])
-                {
-                    nums[i] = nums[j];
-                }
-            }
-        }
-        else
-        {
-            nums[i] = -1;
-        }
-    }
-    for (int i = 0; i < n; i++)
-    {
-        cout << nums[i] << " ";
-    }
+    node *head = new node;
+    node *second = new node;
+    node *third = new node;
+
+    head->data = 1;
+    head->next = second;
+    second->data = 2;
+    second->next = third;
+    third->data = 3;
+    third->next = NULL;
+
+    printlist(head);
 }
