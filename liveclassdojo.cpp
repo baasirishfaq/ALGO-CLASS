@@ -26,6 +26,26 @@ void athead(node *&head, int x)
     head = newnode;
 }
 
+void addattail(node *&head, int x)
+{
+    node *newnode = new node;
+    newnode->data = x;
+    newnode->next = NULL;
+
+    if (head == NULL)
+    {
+        head = newnode;
+        return;
+    }
+
+    node *temp = head;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = newnode;
+}
+
 int main()
 {
     node *head = new node;
@@ -38,6 +58,7 @@ int main()
     second->next = third;
     third->data = 3;
     third->next = NULL;
-    athead(head, 10);
+    addattail(head, 66);
     printlist(head);
 }
+//
