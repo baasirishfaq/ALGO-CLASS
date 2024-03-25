@@ -2,21 +2,40 @@
 
 using namespace std;
 
+class reportcard
+{
+public:
+    unordered_map<string, int> data;
+
+    void insert(const string &name, int score)
+    {
+        data[name] = score;
+    }
+
+    int retrieve(const string &name)
+    {
+        if (data.find(name) != data.end())
+        {
+            return data[name];
+        }
+        else
+            return -1;
+    }
+
+    void display()
+    {
+        for (auto it = data.begin(); it != data.end(); it++)
+        {
+            cout << "score of " << it->first << " is " << it->second << endl;
+        }
+    }
+};
+
 int main()
 {
-    int arr[] = {0, 1, 2, 3, 4, 5, 6, 9, 9, 9, 9, 2, 2, 4};
-
-    int n = sizeof(arr) / sizeof(arr[0]);
-
-    unordered_map<int, int> umap;
-    for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
-    {
-        int key = arr[i];
-        umap[key]++;
-    }
-    for (auto it = umap.begin(); it != umap.end(); it++)
-    {
-        cout << it->first << " is " << it->second << " times" << endl;
-    }
-    cout << "N is " << n;
+    reportcard hashmap;
+    hashmap.insert("Alice", 85);
+    hashmap.insert("Bob", 92);
+    hashmap.insert("Charlie", 78);
+    hashmap.display();
 }
