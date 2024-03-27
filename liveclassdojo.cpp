@@ -1,41 +1,22 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-//
-class reportcard
+class Solution
 {
 public:
-    unordered_map<string, int> data;
-
-    void insert(const string &name, int score)
+    int subarraySum(vector<int> &nums, int k)
     {
-        data[name] = score;
-    }
+        unordered_map<int, int> map1;
+        int sum = 0;
+        map1[0] = 1;
+        int subarrays = 0;
 
-    int retrieve(const string &name)
-    {
-        if (data.find(name) != data.end())
+        for (int i = 0; i < nums.size(); i++)
         {
-            return data[name];
+            sum += nums[i];
+            if (map1.count(sum - k))
+            {
+                subarrays += map1[sum - k];
+            }
+            map1[sum] += 1;
         }
-        else
-            return -1;
-    }
-
-    void display()
-    {
-        for (auto it = data.begin(); it != data.end(); it++)
-        {
-            cout << "score of " << it->first << " is " << it->second << endl;
-        }
+        return subarrays;
     }
 };
-
-int main()
-{
-    reportcard hashmap;
-    hashmap.insert("Alice", 85);
-    hashmap.insert("Bob", 92);
-    hashmap.insert("Charlie", 78);
-    hashmap.display();
-}
