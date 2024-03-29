@@ -4,17 +4,24 @@ using namespace std;
 
 int main()
 {
-    map<int, int> mp;
+    unordered_map<int, int> mp;
 
-    int arr[10] = {1, 1, 1, 1, 2, 2, 3, 4, 4, 10};
+    int arr1[5] = {1, 2, 3, 4, 5};
+    int arr2[5] = {1, 2, 2, 3, 2};
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 5; i++)
     {
-        int key = arr[i];
-        mp[key]++;
+        for (int j = 0; j < 5; j++)
+        {
+            if (arr1[i] == arr2[j])
+            {
+                int key = arr1[i];
+                mp[key]++;
+            }
+        }
     }
     for (auto it = mp.begin(); it != mp.end(); it++)
     {
-        cout << it->first << " " << it->second << endl;
+        cout << "ELEMENT " << it->first << " OCCURS " << it->second << endl;
     }
 }
