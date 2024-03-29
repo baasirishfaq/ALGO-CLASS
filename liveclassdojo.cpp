@@ -1,27 +1,16 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-int main()
+class Solution
 {
-    unordered_map<int, int> mp;
-
-    int arr1[5] = {1, 2, 3, 4, 5};
-    int arr2[5] = {1, 2, 2, 3, 2};
-
-    for (int i = 0; i < 5; i++)
+public:
+    int singleNumber(vector<int> &nums)
     {
-        for (int j = 0; j < 5; j++)
+        unordered_set<int> numset;
+        for (int num : nums)
         {
-            if (arr1[i] == arr2[j])
-            {
-                int key = arr1[i];
-                mp[key]++;
-            }
+            if (numset.count(num))
+                numset.erase(num);
+            else
+                numset.insert(num);
         }
+        return *numset.begin();
     }
-    for (auto it = mp.begin(); it != mp.end(); it++)
-    {
-        cout << "ELEMENT " << it->first << " OCCURS " << it->second << endl;
-    }
-}
+};
