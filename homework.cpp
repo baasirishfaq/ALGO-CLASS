@@ -1,37 +1,18 @@
-#include <iostream>
-#include <unordered_map>
-#include <string>
-using namespace std;
-
-int main()
+class Solution
 {
-    unordered_map<char, int> m;
-    m['I'] = 1;
-    m['V'] = 5;
-    m['X'] = 10;
-    m['L'] = 50;
-    m['C'] = 100;
-    m['D'] = 500;
-    m['M'] = 1000;
-
-    string s;
-    cout << "Enter a Roman numeral: ";
-    cin >> s;
-
-    int ans = 0;
-    for (int i = 0; i < s.size(); i++)
+public:
+    int climbStairs(int n)
     {
-        if (m[s[i]] < m[s[i + 1]])
+        if (n == 0 || n == 1)
+            return 1;
+
+        int arr[n + 1];
+        arr[1] = 1;
+        arr[2] = 2;
+        for (int i = 3; i <= n; i++)
         {
-            ans -= m[s[i]];
+            arr[i] = arr[i - 1] + arr[i - 2];
         }
-        else
-        {
-            ans += m[s[i]];
-        }
+        return arr[n];
     }
-
-    cout << "Integer representation: " << ans << endl;
-
-    return 0;
-}
+};
