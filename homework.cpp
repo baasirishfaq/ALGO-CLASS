@@ -18,7 +18,7 @@ int firstUniqChar(string s)
             return i;
         }
     }
-    return -1; // If no unique character found
+    return -1; // If no unique character found//
 }
 
 int main()
