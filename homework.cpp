@@ -1,37 +1,25 @@
-#include <iostream>
-#include <unordered_map>
-#include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int firstUniqChar(string s)
-{
-    unordered_map<char, int> mp;
-    for (char c : s)
-    {
-        mp[c]++;
-    }
-    for (int i = 0; i < s.size(); i++)
-    {
-        if (mp[s[i]] == 1)
-        {
-            return i;
-        }
-    }
-    return -1; // If no unique character found//
-}
-
 int main()
 {
-    string s = "leetcode";
-    int index = firstUniqChar(s);
-    if (index != -1)
+    vector<int> arr = {2, 7, 11, 15};
+    int target = 9;
+    unordered_map<int, int> mp;
+
+    for (int i = 0; i < arr.size(); i++)
     {
-        cout << "Index of the first unique character: " << index << endl;
+        mp[i]++;
     }
-    else
+    for (auto it = mp.begin(); it != mp.end(); it++)
     {
-        cout << "No unique character found in the string." << endl;
+        for (auto it2 = mp.begin(); it2 != mp.end(); it2++)
+        {
+            if (it->first + it2->first == target)
+            {
+                cout << it->first << it2->first;
+            }
+        }
     }
-    return 0;
-}
+} //
