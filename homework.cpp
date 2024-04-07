@@ -1,25 +1,21 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-int main()
+class Solution
 {
-    vector<int> arr = {2, 7, 11, 15};
-    int target = 9;
-    unordered_map<int, int> mp;
+public:
+    void sortColors(vector<int> &nums)
+    {
+        int n = nums.size();
 
-    for (int i = 0; i < arr.size(); i++)
-    {
-        mp[i]++;
-    }
-    for (auto it = mp.begin(); it != mp.end(); it++)
-    {
-        for (auto it2 = mp.begin(); it2 != mp.end(); it2++)
+        for (int i = 0; i < n; i++)
         {
-            if (it->first + it2->first == target)
+            for (int j = i + 1; j < n; j++)
             {
-                cout << it->first << it2->first;
+                if (nums[i] > nums[j])
+                {
+                    char temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                }
             }
         }
     }
-} ///
+};
