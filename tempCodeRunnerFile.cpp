@@ -1,1 +1,1 @@
-// Function to print an array
+1, 4, 7, 3, 2
