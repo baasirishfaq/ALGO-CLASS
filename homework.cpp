@@ -1,27 +1,33 @@
-class Solution
-{
-public:
-    void sortColors(vector<int> &nums)
-    {
-        int start = 0, middle = 0, end = nums.size() - 1;
+#include <bits/stdc++.h>
+#include <algorithm>
 
-        while (middle <= end)
+using namespace std;
+
+int main()
+{
+    vector<int> arr = {2, 1, 4, 7, 3, 2, 5};
+    int n = arr.size();
+    int leftptr, rightptr;
+    int maxLength = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1])
         {
-            if (nums[middle] == 0)
+            leftptr = i - 1;
+            rightptr = i + 1;
+
+            while (leftptr > 0 && arr[leftptr] > arr[leftptr - 1])
             {
-                swap(nums[start], nums[middle]);
-                start++;
-                middle++;
+                leftptr--;
             }
-            else if (nums[middle] == 1)
+            while (rightptr < n - 1 && arr[rightptr] > arr[rightptr + 1])
             {
-                middle++;
+                rightptr++;
             }
-            else
-            {
-                swap(nums[middle], nums[end]);
-                end--;
-            }
+
+            maxLength = max(maxLength, rightptr - leftptr);
         }
     }
-};
+    cout << maxLength;
+}
