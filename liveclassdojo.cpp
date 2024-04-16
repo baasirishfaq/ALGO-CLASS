@@ -4,13 +4,13 @@ using namespace std;
 
 int main()
 {
-    vector<int> nums = {12, 34, 56, 78, 90, 23, 45, 67};
+    vector<int> nums = {1, 1, 1, 4, 4, 3, 3, 5};
 
     unordered_map<int, int> hashValues;
 
     for (auto num : nums)
     {
-        hashValues[num] = num % 10;
+        hashValues[num]++;
     }
 
     for (auto pair : hashValues)
