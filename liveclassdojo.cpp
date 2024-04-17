@@ -17,4 +17,4 @@ int main()
     {
         cout << pair.first << " " << pair.second << endl;
     }
-}
+}//
