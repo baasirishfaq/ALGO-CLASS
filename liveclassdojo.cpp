@@ -1,20 +1,19 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-int main()
+class Solution
 {
-    vector<int> nums = {1, 1, 1, 4, 4, 3, 3, 5};
-
-    unordered_map<int, int> hashValues;
-
-    for (auto num : nums)
+public:
+    int lengthOfLastWord(string s)
     {
-        hashValues[num]++;
+        int count = 0;
+        for (int i = s.size() - 1; i >= 0; i--)
+        {
+            if (s.at(i) != ' ')
+                count++;
+            else if (count > 0)
+                break;
+        }
+        return count;
     }
-
-    for (auto pair : hashValues)
-    {
-        cout << pair.first << " " << pair.second << endl;
-    }
-}//
+};
