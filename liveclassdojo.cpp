@@ -1,13 +1,10 @@
-#include <iostream>
-#include <unordered_map>
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
-    unordered_map<string, int> mp;
-    string text("Hello world, this is a simple sentence. Hello again, world!");
+    map<string, int> mp;
+    string text("hey hey you you me");
     string word;
 
     for (char c : text)
