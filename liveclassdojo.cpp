@@ -1,35 +1,20 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-int main()
+class Solution
 {
-    map<string, int> mp;
-    string text("hey hey you you me");
-    string word;
-
-    for (char c : text)
+public:
+    vector<int> plusOne(vector<int> &digits)
     {
+        int n = digits.size() - 1;
 
-        if (isalpha(c))
+        for (int i = n; i >= 0; i--)
         {
-            word += c;
+            digits[i]++;
+            if (digits[i] < 10)
+            {
+                return digits;
+            }
+            digits[i] = 0;
         }
-        else if (!word.empty())
-        {
-            mp[word]++;
-            word.clear();
-        }
+        digits.insert(digits.begin(), 1);
+        return digits;
     }
-
-    if (!word.empty())
-    {
-        mp[word]++;
-    }
-
-    for (auto pair : mp)
-    {
-        cout << pair.first << ": " << pair.second << endl;
-    }
-
-    return 0;
-}
+};
