@@ -1,38 +1,24 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 int main()
 {
-    int n;
+    int n, x = 0;
     cin >> n;
-
-    do
+    x = 0;
+    while (n > 0)
     {
-        string x;
-        int count = 0;
-        //cout << "Enter your word: ";
-        cin >> x;
-        //cout << "Your word is: " << x << endl;
-
-        int endwordindex = x.length() - 1;
-        char endword = x[endwordindex];
-
-        if (x.length() > 10)
+        string input;
+        cin >> input;
+        if (input == "X++" || input == "++X")
         {
-            for (int i = 1; i < x.length() - 1; i++)
-            {
-                count++;
-            }
-            cout << x[0] << count << endword << endl;
+            x++;
         }
-        else
+        if (input == "X--" || input == "--X")
         {
-            cout << x << endl;
+            x--;
         }
-
         n--;
-    } while (n > 0);
-
-    return 0;
-}
+    }
+    cout << x;
+};

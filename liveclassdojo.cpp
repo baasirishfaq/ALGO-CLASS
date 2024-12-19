@@ -1,19 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+long int multiplyNumber(int n);
+
 int main()
 {
-    int input;
-    cin >> input;
-    if (input >= 2)
+    int n, result;
+    cout << "Enter a number: ";
+    cin >> n;
+    result = multiplyNumber(n);
+    cout << "Factorial of " << n << " is = " << result << endl;
+    return 0;
+}
+
+long int multiplyNumber(int n)
+{
+    if (n > 1)
     {
-        if (input % 2 == 0)
-        {
-            cout << ("YES");
-        }
+        return n * multiplyNumber(n - 1);
     }
     else
-        cout << ("NO");
-
-    return 0;
-};
+        return 1;
+}
