@@ -3,22 +3,24 @@ using namespace std;
 
 int main()
 {
-    int n, x = 0;
-    cin >> n;
-    x = 0;
-    while (n > 0)
+    long long l, b, a, cal1, cal2, cal3;
+
+    cin >> l;
+    cin >> b;
+    cin >> a;
+
+    if (a == 1)
     {
-        string input;
-        cin >> input;
-        if (input == "X++" || input == "++X")
-        {
-            x++;
-        }
-        if (input == "X--" || input == "--X")
-        {
-            x--;
-        }
-        n--;
+        cal3 = l * b;
+        cout<< "if condition entered "<<endl;
+
     }
-    cout << x;
+    else if (a > 1)
+    {
+        cal1 = ceil((double)l / a);
+        cal2 = ceil((double)b / a);
+        cal3 = cal1 * cal2;
+        cout<<"did not enter if conditon, else entered"<<endl;
+    }
+    cout << cal3;
 };
