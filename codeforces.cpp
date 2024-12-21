@@ -3,24 +3,40 @@ using namespace std;
 
 int main()
 {
-    long long l, b, a, cal1, cal2, cal3;
-
-    cin >> l;
-    cin >> b;
-    cin >> a;
-
-    if (a == 1)
+    int n, k, ctr = 0, mainscore;
+    cin >> n;
+    cin >> k;
+    int scores[n];
+    for (int i = 0; i < n; i++)
     {
-        cal3 = l * b;
-        cout<< "if condition entered "<<endl;
-
+        cin >> scores[i];
     }
-    else if (a > 1)
+    for (int i = 0; i < n + 1; i++)
     {
-        cal1 = ceil((double)l / a);
-        cal2 = ceil((double)b / a);
-        cal3 = cal1 * cal2;
-        cout<<"did not enter if conditon, else entered"<<endl;
+        cout << "value of i is " << i << " and k is " << k << endl;
+
+        if (i == k)
+        {
+            cout << "IF -> ENTERED" << endl;
+            mainscore = scores[i - 1];
+            cout << "mainscore found " << mainscore << endl;
+        }
     }
-    cout << cal3;
+    for (int i = 0; i < n; i++)
+    {
+
+        if (scores[i] >= mainscore && scores[i] > 0)
+        {
+            cout << "compared  " << scores[i] << " with " << mainscore << endl;
+            ctr++;
+            cout << "player with score " << scores[i] << " is moved ahead current count is " << ctr << endl;
+        }
+        // else if part to be removed
+        else if ((k == 1 && ctr == 0) && (n == k && ctr == 0))
+        {
+            cout << "ELSE IF ENTERED " << endl;
+            ctr = n;
+        }
+    }
+    cout << "final values of ctr is =  " << ctr << endl;
 };
