@@ -1,42 +1,74 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 int main()
 {
-    int n, k, ctr = 0, mainscore;
-    cin >> n;
-    cin >> k;
-    int scores[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> scores[i];
-    }
-    for (int i = 0; i < n + 1; i++)
-    {
-        cout << "value of i is " << i << " and k is " << k << endl;
+    int rows = 5, cols = 5; // Define dimensions of the matrix
+    int matrix[5][5];
+    int matrixCenter = (rows * cols / 2) + 1;
+    int targetindex;
+    int noofmoves;
+    int colsecure = 0;
+    int rowz, colz;
 
-        if (i == k)
-        {
-            cout << "IF -> ENTERED" << endl;
-            mainscore = scores[i - 1];
-            cout << "mainscore found " << mainscore << endl;
-        }
-    }
-    for (int i = 0; i < n; i++)
+    // Input the matrix
+    cout << "Enter a 5x5 matrix:" << endl;
+    for (int i = 0; i < rows; i++)
     {
 
-        if (scores[i] >= mainscore && scores[i] > 0)
+        for (int j = 0; j < cols; j++)
         {
-            cout << "compared  " << scores[i] << " with " << mainscore << endl;
-            ctr++;
-            cout << "player with score " << scores[i] << " is moved ahead current count is " << ctr << endl;
-        }
-        // else if part to be removed
-        else if ((k == 1 && ctr == 0) && (n == k && ctr == 0))
-        {
-            cout << "ELSE IF ENTERED " << endl;
-            ctr = n;
+            cout << "enter element at row " << i + 1 << " and col " << j + 1 << " =";
+            cin >> matrix[i][j];
         }
     }
-    cout << "final values of ctr is =  " << ctr << endl;
-};
+
+    // Print the matrix to verify
+    cout << "The matrix is:" << endl;
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            cout << matrix[i][j] << " "; // Print each element
+        }
+        cout << endl; // Move to the next row
+    }
+    for (int i = 0; i < rows; i++)
+    {
+
+        for (int j = 0; j < cols; j++)
+        {
+            if (matrix[i][j] == 1)
+            {
+                // flag = 1;
+                cout << "target element found at row " << i + 1 << " and column " << j + 1 << endl;
+                targetindex = (i + 1) * (j + 1);
+                colsecure = j + 1;
+                rowz = i + 1;
+                colz = j + 1;
+            }
+        }
+    }
+    cout << "target index  is " << targetindex << endl;
+    if (targetindex % 3 == 0)
+    {
+        cout << "if condition entered" << endl;
+        noofmoves = abs(colsecure - 3);
+    }
+    else if (targetindex > 15)
+    {
+        noofmoves = abs(matrixCenter - targetindex) / 3;
+    }
+    else if (targetindex < 6)
+    {
+        noofmoves = abs(rowz * colz) - 9;
+    }
+    else
+    {
+        noofmoves = abs(matrixCenter - targetindex);
+    }
+    cout << noofmoves << endl;
+    cout << "matrixcenter found = " << matrixCenter;
+    cout << "target index multiply is found = " << targetindex;
+    return 0;
+}
