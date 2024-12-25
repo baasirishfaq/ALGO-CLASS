@@ -4,21 +4,17 @@ using namespace std;
 
 int main()
 {
+    string s = "konjack";
 
-    int arr[3] = {2, 0, 1};
-
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < s.length(); i++)
     {
-        for (int j = i + 1; j < 3; j++)
+        if (s[0] >= 97 && s[0] <= 122)
         {
-            if (arr[i] > arr[j])
-            {
-                swap(arr[i], arr[j]);
-            }
+            s[0] = toupper(s[0]);
         }
     }
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < s.length(); i++)
     {
-        cout << arr[i] << " ";
+        cout << s[i];
     }
 };
