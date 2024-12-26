@@ -4,17 +4,20 @@ using namespace std;
 
 int main()
 {
-    string s = "konjack";
-
-    for (int i = 0; i < s.length(); i++)
+    string name = "wjmzbmr";
+    int ctr = 0;
+    unordered_set<char> seen;
+    for (auto c : name)
     {
-        if (s[0] >= 97 && s[0] <= 122)
-        {
-            s[0] = toupper(s[0]);
-        }
+        seen.insert(c);
     }
-    for (int i = 0; i < s.length(); i++)
+    for (auto c : seen)
     {
-        cout << s[i];
+        ctr++;
     }
+    cout << ctr;
+    if (ctr % 2 == 0)
+        cout << "CHAT WITH HER!" << endl;
+    else
+        cout << "IGNORE HIM!" << endl;
 };
