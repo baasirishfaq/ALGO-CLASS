@@ -1,23 +1,27 @@
 #include <bits/stdc++.h>
+#include <windows.h>
 
 using namespace std;
 
 int main()
 {
-    string name = "wjmzbmr";
-    int ctr = 0;
-    unordered_set<char> seen;
-    for (auto c : name)
+    while (true)
     {
-        seen.insert(c);
+        system("cls");
+
+        char timeinformat[50];
+        time_t rawtime;
+        time(&rawtime);
+
+        struct tm *currentime;
+
+        currentime = localtime(&rawtime);
+
+        // cout << currentime->tm_hour << endl;
+
+        strftime(timeinformat, 50, "%I:%M:%S %p", currentime);
+        cout << timeinformat << endl;
+
+        Sleep(1000);
     }
-    for (auto c : seen)
-    {
-        ctr++;
-    }
-    cout << ctr;
-    if (ctr % 2 == 0)
-        cout << "CHAT WITH HER!" << endl;
-    else
-        cout << "IGNORE HIM!" << endl;
 };
