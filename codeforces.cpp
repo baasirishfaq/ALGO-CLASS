@@ -1,21 +1,15 @@
-#include <bits/stdc++.h>
-
-using namespace std;
-
-int main()
-{
-    int limak, bob, ctr = 0;
-    cin >> limak;
-    cin >> bob;
-
-    while (limak <= bob)
+class Solution {
+public:
+    vector<int> shuffle(vector<int>& nums, int n) 
     {
-        if (limak <= bob)
+        vector <int> newarr;
+        int length = nums.size();
+        int len = nums.size();
+        for(int i = 0, j = n; i < n-1, j < length; i++, j++)
         {
-            bob = bob * 2;
-            limak = limak * 3;
-            ctr++;
+            newarr.push_back(nums[i]);
+            newarr.push_back(nums[j]);
         }
+        return newarr;
     }
-    cout << ctr;
 };
