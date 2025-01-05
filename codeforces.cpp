@@ -1,15 +1,23 @@
 class Solution {
 public:
-    vector<int> shuffle(vector<int>& nums, int n) 
+    vector<vector<int>> groupThePeople(vector<int>& nums) 
     {
-        vector <int> newarr;
-        int length = nums.size();
-        int len = nums.size();
-        for(int i = 0, j = n; i < n-1, j < length; i++, j++)
+        int n = nums.size();
+        unordered_map <int, vector<int>> mp;
+        vector <vector <int>> ans;
+        
+        for(int i = 0; i<n; i++)
         {
-            newarr.push_back(nums[i]);
-            newarr.push_back(nums[j]);
+            int L = nums[i];
+
+            mp[L].push_back(i);
+
+            if(mp[L].size() == L)
+            {
+                ans.push_back(mp[L]);
+                mp[L].clear();
+            }
         }
-        return newarr;
+        return ans;
     }
 };
