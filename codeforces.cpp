@@ -1,19 +1,21 @@
 class Solution {
 public:
-    vector<string> fizzBuzz(int n) 
+    int maxProfit(vector<int>& prices) 
     {
-        vector<string> result;
-        for (int i = 1; i <= n; ++i) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                result.push_back("FizzBuzz");
-            } else if (i % 3 == 0) {
-                result.push_back("Fizz");
-            } else if (i % 5 == 0) {
-                result.push_back("Buzz");
-            } else {
-                result.push_back(to_string(i));
+        int maxprofit = 0;
+        for(int i = 0; i < prices.size(); i++)
+        {
+            if(prices[i])
+        }
+        for(int i = 0; i < prices.size(); i++)
+        {
+            for(int j = i+1; j<prices.size(); j++)
+            {
+                int profit = prices[j] - prices[i];
+                maxprofit = max(profit, maxprofit);
             }
         }
-        return result;
+        if (maxprofit < 0) return 0;
+        return maxprofit;    
     }
 };
