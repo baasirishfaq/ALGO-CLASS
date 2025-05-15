@@ -1,39 +1,28 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-int firstUniqChar(string s) {
-    
-        unordered_map<char, int> charCount;
+bool isAnagram(string s, string t) {
+    // Sort the strings
+    sort(s.begin(), s.end());
+    sort(t.begin(), t.end());
 
-        for(auto c : s) 
-        {
-            charCount[c]++;
-        }
-        for(int i = 0; i < s.size(); i++) 
-        {
-            if(charCount[s[i]] == 1) 
-            {
-                return i; // return the index of the first unique character
-            }
-        }
+    // Compare sorted strings
+    return s == t;
 
-        return -1; // default return if no unique character found
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
+    string s, t;
+    cout << "Enter first string: ";
+    getline(cin, s);
+    cout << "Enter second string: ";
+    getline(cin, t);
 
-    int index = firstUniqChar(input);
-
-    if (index == -1) {
-        cout << "No unique character found." << endl;
+    if (isAnagram(s, t)) {
+        cout << "They are anagrams." << endl;
     } else {
-        cout << "First unique character: '" << input[index] << "' at index " << index << endl;
+        cout << "They are NOT anagrams." << endl;
     }
 
     return 0;
 }
-
