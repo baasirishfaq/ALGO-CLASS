@@ -1,29 +1,39 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
-vector<int> parseInts(string str)
-{
-    int n = str.length(), numstore[n];
-    for (int i; i < str.length(); i++)
-    {
-        if (!isdigit(str[i]))
+int firstUniqChar(string s) {
+    
+        unordered_map<char, int> charCount;
+
+        for(auto c : s) 
         {
-            str.erase(i, 1);
+            charCount[c]++;
         }
-    }
-    cout << str << endl;
+        for(int i = 0; i < s.size(); i++) 
+        {
+            if(charCount[s[i]] == 1) 
+            {
+                return i; // return the index of the first unique character
+            }
+        }
+
+        return -1; // default return if no unique character found
 }
 
-int main()
-{
-    string str("23,33,22");
-    // cin >> str;
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
 
-    vector<int> integers = parseInts(str);
-    for (int i = 0; i < integers.size(); i++)
-    {
-        cout << integers[i] << "\n";
+    int index = firstUniqChar(input);
+
+    if (index == -1) {
+        cout << "No unique character found." << endl;
+    } else {
+        cout << "First unique character: '" << input[index] << "' at index " << index << endl;
     }
 
     return 0;
 }
+

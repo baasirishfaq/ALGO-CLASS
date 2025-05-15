@@ -5,24 +5,17 @@ using namespace std;
 int main()
 {
     stack<int> s;
-    int ans[5];
-    for (int i = 1; i <= 5; i++)
+
+    for (int i = 1; i <= 10; i++)
     {
-        s.push(i * 10);
+        s.push(i);
     }
-
-    stack<int> temp = s;
-
-    int i = 0;
-    while (!temp.empty())
+    while (!s.empty())
     {
-        ans[i] = temp.top();
-        i++;
-        temp.pop();
-    }
-
-    for (int i = 5 - 1; i >= 0; i--)
-    {
-        cout << ans[i] << endl;
+        if (s.top() % 2 == 0)
+        {
+            cout << s.top() << " ";
+        }
+        s.pop();
     }
 };

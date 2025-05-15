@@ -14,7 +14,7 @@ int main()
     {
         if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1])
         {
-            leftptr = i - 1;
+            leftptr  = i - 1;
             rightptr = i + 1;
 
             while (leftptr > 0 && arr[leftptr] > arr[leftptr - 1])
