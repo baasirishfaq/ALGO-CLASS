@@ -1,24 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long int multiplyNumber(int n);
-
 int main()
 {
-    int n, result;
-    cout << "Enter a number: ";
-    cin >> n;
-    result = multiplyNumber(n);
-    cout << "Factorial of " << n << " is = " << result << endl;
-    return 0;
-}
+    int nums[4] = {1, 3, 5, 6};
+    int target = 2;
 
-long int multiplyNumber(int n)
-{
-    if (n > 1)
+    for(int i = 0; i < 4; i++)
     {
-        return n * multiplyNumber(n - 1);
+        if(nums[i] == target)
+        {
+            cout << i << endl;
+            return 0;
+        }
+        else if(nums[i] > target)
+        {
+            cout << i << endl;
+            return 0;
+        }
     }
-    else
-        return 1;
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>White Centipede Tracker</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            cursor: none;
+        }
+        
+        .segment {
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: white;
+            transform-origin: left center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const segmentCount = 30; // More segments for smoother line
+        const segments = [];
+        const positions = Array(segmentCount).fill({x: 0, y: 0, angle: 0});
+        
+        // Create segments
+        for (let i = 0; i < segmentCount; i++) {
+            const segment = document.createElement('div');
+            segment.className = 'segment';
+            segment.style.opacity = 1 - (i * 0.02); // Fade tail slightly
+            document.body.appendChild(segment);
+            segments.push(segment);
+        }
+        
+        let lastMouse = {x: 0, y: 0};
+        
+        // Mouse movement handler
+        document.addEventListener('mousemove', (e) => {
+            // Calculate angle from last mouse position
+            const angle = Math.atan2(e.clientY - lastMouse.y, e.clientX - lastMouse.x) * 180 / Math.PI;
+            
+            // Update positions array
+            positions.pop();
+            positions.unshift({x: e.clientX, y: e.clientY, angle: angle});
+            
+            // Update segments
+            segments.forEach((segment, index) => {
+                const pos = positions[index] || positions[positions.length - 1];
+                segment.style.left = `${pos.x}px`;
+                segment.style.top = `${pos.y}px`;
+                segment.style.transform = `rotate(${pos.angle}deg)`;
+                
+                // Make tail segments slightly shorter
+                const length = 20 - (index * 0.3);
+                segment.style.width = `${Math.max(5, length)}px`;
+            });
+            
+            lastMouse = {x: e.clientX, y: e.clientY};
+        });
+    </script>
+</body>
+</html>
