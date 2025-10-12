@@ -7,20 +7,21 @@ struct Node{
     struct Node *next;
 };
 
-void insertAtStart(struct Node **head, int value)
+struct Node* head; // declare head globally, no need to pass &head everytime
+
+
+void insertAtStart(int value)
 {
     struct Node *newnode;
     newnode = malloc(sizeof(struct Node));
     newnode->data = value;
-    newnode->next = *head;
-    *head = newnode;
+    newnode->next = head;
+    head = newnode;
 
 }
 
-
 int main(){
 
-    struct Node* head;
     struct Node *node1;
     node1 = malloc(sizeof(struct Node));
     node1->data = 10;
@@ -28,7 +29,7 @@ int main(){
 
     head = node1;
 
-    insertAtStart(&head, 20);
+    insertAtStart(20);
 
     while (head != NULL) {
         printf("%d ", head->data);
