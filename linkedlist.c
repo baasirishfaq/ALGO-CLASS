@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node{
+struct Node
+{
     int data;
     struct Node *next;
 };
 
-struct Node* head; // declare head globally, no need to pass &head everytime
-
+struct Node *head;
 
 void insertAtStart(int value)
 {
@@ -17,23 +17,56 @@ void insertAtStart(int value)
     newnode->data = value;
     newnode->next = head;
     head = newnode;
-
 }
 
-int main(){
+void insert(int value)
+{
+    struct Node *newnode;
+    newnode = malloc(sizeof(struct Node));
+    newnode->data = value;
+    newnode->next = NULL;
 
-    struct Node *node1;
-    node1 = malloc(sizeof(struct Node));
-    node1->data = 10;
-    node1->next = NULL;
-
-    head = node1;
-
-    insertAtStart(20);
-
-    while (head != NULL) {
-        printf("%d ", head->data);
-        head = head->next;
+    if(head == NULL)
+    {
+        head = newnode;
+        return;
     }
 
+    struct Node *temp;
+    temp = head;
+    while(temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    temp->next = newnode;
+}
+
+void deleteatstart()
+{
+    struct Node *temp;
+    temp = head;
+    head = head->next;
+    free(temp);
+}
+
+void PrintList()
+{
+    struct Node *temp;
+    temp = head;
+
+    while (temp != NULL)
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+}
+
+int main()
+{
+    // insertAtStart(20);
+    insert(11);
+    insert(12);
+    insert(13);
+    deleteatstart();
+    PrintList();
 }
