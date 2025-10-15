@@ -8,7 +8,7 @@ struct Node
     struct Node *next;
 };
 
-struct Node *head;
+struct Node *head = NULL;
 
 void insertAtStart(int value)
 {
@@ -26,7 +26,7 @@ void insert(int value)
     newnode->data = value;
     newnode->next = NULL;
 
-    if(head == NULL)
+    if (head == NULL)
     {
         head = newnode;
         return;
@@ -34,7 +34,7 @@ void insert(int value)
 
     struct Node *temp;
     temp = head;
-    while(temp->next != NULL)
+    while (temp->next != NULL)
     {
         temp = temp->next;
     }
@@ -43,10 +43,51 @@ void insert(int value)
 
 void deleteatstart()
 {
+    if (head == NULL)
+        return; // empty guard
+
     struct Node *temp;
     temp = head;
     head = head->next;
     free(temp);
+}
+
+int search(int value)
+{
+    struct Node *temp;
+    temp = head;
+    int flag = 0, count = 0;
+    while (temp != NULL)
+    {
+        if (temp->data == value)
+        {
+            flag = 1;
+            break;
+        }
+        count++;
+
+        temp = temp->next;
+    }
+    if (flag == 1)
+    {
+        printf("Element %d found at index %d in the list\n", value, count);
+    }
+    else
+    {
+        printf("element not in the list");
+    }
+}
+
+void delete()
+{
+    struct Node *temp;
+    temp = head;
+    while (temp->next->next != NULL)
+    {
+        temp = temp->next;
+    }
+    free(temp->next);
+    temp->next = NULL;
 }
 
 void PrintList()
@@ -64,9 +105,10 @@ void PrintList()
 int main()
 {
     // insertAtStart(20);
-    insert(11);
-    insert(12);
-    insert(13);
-    deleteatstart();
+    // insert(11);
+    // insert(12);
+    // insert(13);
+    // PrintList();
+    // search(13);
     PrintList();
 }
