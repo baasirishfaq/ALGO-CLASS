@@ -2,9 +2,9 @@
 
 int main()
 {
-    int arr[] = {1, 2, 3, 4};
-    int *p = arr;
-    ++*p;
-    p += 2;
-    printf("%d", *p);
+
+int arr[] = {2, 4, 6};
+int *p = arr;
+printf("%d", *p++ + *p);
+
 };
