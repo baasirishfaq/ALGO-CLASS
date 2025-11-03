@@ -1,28 +1,24 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
-bool isAnagram(string s, string t) {
-    // Sort the strings
-    sort(s.begin(), s.end());
-    sort(t.begin(), t.end());
+int main()
+{
+    int biggest = INT_MIN;
+    int second = INT_MIN;
+    int arr[10] = {3, 4, 5, 12, 3, 2, 7, 8, 10, 1};
 
-    // Compare sorted strings
-    return s == t;
-
-}
-
-int main() {
-    string s, t;
-    cout << "Enter first string: ";
-    getline(cin, s);
-    cout << "Enter second string: ";
-    getline(cin, t);
-
-    if (isAnagram(s, t)) {
-        cout << "They are anagrams." << endl;
-    } else {
-        cout << "They are NOT anagrams." << endl;
+    for (int i = 0; i < 10; i++)
+    {
+        if (arr[i] > biggest)
+        {
+            second = biggest;
+            biggest = arr[i];
+        }
+        else if (arr[i] < biggest && arr[i] > second)
+        {
+            second = arr[i];
+        }
     }
-
-    return 0;
-}
+    cout << biggest << " " << second;
+};
