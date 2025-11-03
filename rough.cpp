@@ -13,7 +13,7 @@ int main()
         if (arr[i] > biggest)
         {
             second = biggest;
-            biggest = arr[i];
+            biggest = arr[i]; 
         }
         else if (arr[i] < biggest && arr[i] > second)
         {
